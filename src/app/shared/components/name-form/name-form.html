@@ -1,5 +1,5 @@
 <form
-  class="w-full max-w-sm flex flex-col gap-2"
+  class="w-full max-w-sm flex flex-col gap-2 border-b border-cyan-500 py-2"
   [formGroup]="form"
 >
   <label
@@ -12,6 +12,6 @@
     formControlName="firstName"
     (input)="emitName()"
     placeholder="Escribe tu nombre"
-    class="h-11 rounded-md border border-cyan-500 px-3 outline-none focus:border-cyan-700"
+    class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
   />
 </form>
