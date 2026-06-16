@@ -1,59 +1,28 @@
-# I18nApp
+# i18n-app
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.15.
+Proyecto sencillo de Angular para practicar **traducciones (i18n)** y **cookies**, usando dos librerías:
 
-## Development server
+- [`@ngx-translate/core`](https://github.com/ngx-translate/core) + `@ngx-translate/http-loader` → traducciones
+- [`ngx-cookie-service-ssr`](https://www.npmjs.com/package/ngx-cookie-service-ssr) → cookies (compatible con SSR)
 
-To start a local development server, run:
+## ¿Qué hace?
 
-```bash
-ng serve
-```
+Un selector de idioma que cambia los textos de la app entre `es`, `en`, `fr` e `it`, y guarda el idioma elegido en una cookie para que se recuerde entre visitas.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Cómo funciona
 
-## Code scaffolding
+1. **Selector de idioma** ([lenguage-selector.ts](src/app/shared/components/lenguage-selector/lenguage-selector.ts)) — pinta las opciones de idioma y, al cambiar el `<select>`, llama al servicio.
+2. **Servicio de idioma** ([languageService.ts](src/app/core/services/languageService.ts)) — hace el trabajo real:
+   - guarda el idioma en una cookie (`cookie.set('lang', lang)`)
+   - le dice a `TranslateService` que use ese idioma (`translate.use(lang)`)
+3. **Archivos de traducción** ([public/assets/i18n/](public/assets/i18n/)) — un `.json` por idioma (`es.json`, `en.json`, `fr.json`, `it.json`) con las claves de texto.
+4. **Configuración global** ([app.config.ts](src/app/app.config.ts)) — registra `SsrCookieService` y configura `provideTranslateService` con el loader que busca los `.json` en `/assets/i18n/`.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+En las plantillas, los textos se muestran con el pipe de traducción, por ejemplo `{{ 'welcomeMessage' | translate }}`, y el idioma elegido vive en la cookie `lang` para persistir entre recargas.
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## Levantar el proyecto
 
 ```bash
-ng build
+npm install
+npm start
 ```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
