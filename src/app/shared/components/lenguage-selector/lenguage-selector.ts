@@ -8,8 +8,8 @@ import { LanguageService } from '../../../core/services/languageService';
   styleUrl: './lenguage-selector.css',
 })
 export class LenguageSelector {
-
-  languageService = inject(LanguageService);
+  public readonly languageService = inject(LanguageService);
+  public readonly currentLang = this.languageService.currentLang;
   
   public readonly languages = signal([
     { code: 'en', flag: '🇺🇸' },
@@ -21,7 +21,7 @@ export class LenguageSelector {
   changeLanguage(event: Event) {
      const target = event.target as HTMLSelectElement;
      const language = target.value;
-     
+
      this.languageService.changeLang(language);
   }
 }

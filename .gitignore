@@ -29,7 +29,6 @@ yarn-error.log
 !.vscode/mcp.json
 .history/*
 .trae/
-.trae/rules/*
 
 
 
