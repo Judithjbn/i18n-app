@@ -1,0 +1,37 @@
+{
+  "welcomeMessage": "Welcome, {{ firstName }}! How are you today?",
+  "changeLanguage": "Change language",
+  "pricingPage": {
+    "title": "Pricing",
+    "description": "Here you can find our pricing plans"
+  },
+  "plans": {
+    "texts": {
+      "perMonth": "per month",
+      "join": "Join",
+      "online-ordering": "Online Ordering",
+      "limited-support": "Limited Support",
+      "special-events-access": "Special Events Access",
+      "unlimited-support": "24/7 support",
+      "personal-chef-consultation": "Personal Chef Consultation"
+    },
+    "basic": {
+      "name": "Basic Plan",
+      "description": "Basic plan description",
+      "price": "$9.99"
+    },
+    "pro": {
+      "name": "Pro Plan",
+      "description": "Pro plan description",
+      "price": "$19.99"
+    },
+    "enterprise": {
+      "name": "Enterprise Plan",
+      "description": "Enterprise plan description",
+      "price": "$29.99"
+    }
+  },
+  "basic-plan":{
+    "return":"Return products"
+  }
+}
