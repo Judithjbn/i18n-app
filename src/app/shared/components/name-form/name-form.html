@@ -1,0 +1,17 @@
+<form
+  class="w-full max-w-sm flex flex-col gap-2"
+  [formGroup]="form"
+>
+  <label
+    for="firstName"
+    class="text-sm font-semibold text-cyan-700"
+  >Tu nombre</label>
+  <input
+    id="firstName"
+    type="text"
+    formControlName="firstName"
+    (input)="emitName()"
+    placeholder="Escribe tu nombre"
+    class="h-11 rounded-md border border-cyan-500 px-3 outline-none focus:border-cyan-700"
+  />
+</form>
