@@ -1,22 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
-import { SsrCookieService } from 'ngx-cookie-service-ssr';
 import { provideTranslateLoader, provideTranslateService, TranslateLoader } from '@ngx-translate/core';
 import { Observable, of } from 'rxjs';
 
-import BasicPlan from './basic-plan';
-
-class TestCookieService {
-  private readonly store = new Map<string, string>();
-
-  get(key: string): string {
-    return this.store.get(key) ?? '';
-  }
-
-  set(key: string, value: string): void {
-    this.store.set(key, value);
-  }
-}
+import { ProductCard } from './product-card';
 
 class TestTranslateLoader implements TranslateLoader {
   getTranslation(lang: string): Observable<any> {
@@ -25,16 +11,14 @@ class TestTranslateLoader implements TranslateLoader {
   }
 }
 
-describe('BasicPlan', () => {
-  let component: BasicPlan;
-  let fixture: ComponentFixture<BasicPlan>;
+describe('ProductCard', () => {
+  let component: ProductCard;
+  let fixture: ComponentFixture<ProductCard>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BasicPlan],
+      imports: [ProductCard],
       providers: [
-        provideRouter([]),
-        { provide: SsrCookieService, useClass: TestCookieService },
         provideTranslateService({
           lang: 'en',
           fallbackLang: 'en',
@@ -43,7 +27,7 @@ describe('BasicPlan', () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(BasicPlan);
+    fixture = TestBed.createComponent(ProductCard);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

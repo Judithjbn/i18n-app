@@ -10,22 +10,28 @@
       "perMonth": "al mese",
       "join": "Iscriviti",
       "online-ordering": "Ordini online",
-      "limited-support": "Supporto limitato"
+      "limited-support": "Supporto limitato",
+      "special-events-access": "Accesso ai eventi speciali",
+      "unlimited-support": "24/7 supporto senza limiti",
+      "personal-chef-consultation": "Consultazione personale chef"
     },
     "basic": {
       "name": "Piano Base",
-      "price": 9.99,
+      "price": "9.99€",
       "description": "Descrizione del piano base"
     },
     "pro": {
       "name": "Piano Pro",
-      "price": 20,
+      "price": "20€",
       "description": "Descrizione del piano pro"
     },
     "enterprise": {
       "name": "Piano Aziendale",
-      "price": 30,
+      "price": "30€",
       "description": "Descrizione del piano aziendale"
     }
+  },
+  "basic-plan":{
+    "return":"Torna a page prodotti"
   }
 }

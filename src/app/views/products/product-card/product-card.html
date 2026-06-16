@@ -1,0 +1,46 @@
+<div
+  class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md lg:h-max z-10 translate-y-0"
+  [ngClass]="{ 'lg:scale-105': featured() }"
+>
+  <div class="p-6 text-center">
+    <ng-content select="[card-title]"></ng-content>
+    @if (priceKey(); as resolvedPriceKey) {
+      <h3
+        class="antialiased tracking-normal font-sans text-3xl font-semibold leading-snug text-blue-gray-900 flex justify-center mt-5 mb-2"
+      >
+        {{ resolvedPriceKey | translate }}<span
+          class="block antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-blue-gray-900 self-end -translate-y-1"
+        >
+          /{{ perMonthLabelKey() | translate }}</span
+        >
+      </h3>
+    }
+    <ul class="flex flex-col items-center justify-start gap-3 pt-6 mt-2 mb-5">
+      <div class="">
+        @for (key of featureKeys(); track key) {
+          <li class="flex items-center gap-2 py-1 text-gray-700">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              aria-hidden="true"
+              class="w-5 h-5 text-inherit"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4.5 12.75l6 6 9-13.5"
+              ></path>
+            </svg>
+            <p class="block antialiased font-sans text-base leading-relaxed font-normal text-inherit">
+              {{ key | translate }}
+            </p>
+          </li>
+        }
+      </div>
+    </ul>
+    <ng-content select="[card-actions]"></ng-content>
+  </div>
+</div>

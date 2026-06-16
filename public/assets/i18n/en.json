@@ -10,7 +10,10 @@
       "perMonth": "per month",
       "join": "Join",
       "online-ordering": "Online Ordering",
-      "limited-support": "Limited Support"
+      "limited-support": "Limited Support",
+      "special-events-access": "Special Events Access",
+      "unlimited-support": "24/7 support",
+      "personal-chef-consultation": "Personal Chef Consultation"
     },
     "basic": {
       "name": "Basic Plan",
@@ -27,5 +30,8 @@
       "description": "Enterprise plan description",
       "price": "$29.99"
     }
+  },
+  "basic-plan":{
+    "return":"Return products"
   }
 }
