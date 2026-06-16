@@ -6,14 +6,20 @@ import { TranslateService } from '@ngx-translate/core';
   providedIn: 'root',
 })
 export class LanguageService {
-  public readonly cookie = inject(SsrCookieService);
-  public  translate = inject(TranslateService);
-  currentLang = signal('');
+  private readonly cookie = inject(SsrCookieService);
+  private readonly translate = inject(TranslateService);
+  private readonly defaultLang = 'en';
 
-  changeLang( lang: string) {
+  readonly currentLang = signal(this.cookie.get('lang') || this.defaultLang);
+
+
+  constructor() {
+    this.translate.setFallbackLang(this.defaultLang);
+    this.translate.use(this.currentLang());
+  }
+
+  changeLang(lang: string) {
     this.cookie.set('lang', lang);
-
-    this.translate.setFallbackLang(lang);
     this.translate.use(lang);
     this.currentLang.set(lang);
   }
