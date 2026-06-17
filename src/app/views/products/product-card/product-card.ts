@@ -9,8 +9,8 @@ import { TranslatePipe } from '@ngx-translate/core';
   styleUrl: './product-card.css',
 })
 export class ProductCard {
-  readonly featured = input(false);
-  readonly priceKey = input<string | null>(null);
-  readonly perMonthLabelKey = input('plans.texts.perMonth');
-  readonly featureKeys = input<string[]>([]);
+  public readonly featured = input(false);
+  public readonly priceKey = input<string | null>(null);
+  public readonly perMonthLabelKey = input('plans.texts.perMonth');
+  public readonly featureKeys = input<string[]>([]);
 }
